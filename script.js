@@ -1,5 +1,5 @@
 // Prepare DOM elements
-const displayValue = document.querySelector('.display-value');
+const displayedValue = document.querySelector('.display-value');
 const one = document.querySelector('.one');
 const two = document.querySelector('.two');
 const three = document.querySelector('.three');
@@ -20,8 +20,20 @@ const equals = document.querySelector('.equals');
 const decimal = document.querySelector('.decimal');
 const zero = document.querySelector('.zero');
 
-let currentValue
+let currentValue = 0;
+
+function displayCurrentValue() {
+    displayedValue.textContent = currentValue;
+};
 
 one.onclick = function () {
-    displayValue.textContent = '1'
+    displayedValue.textContent = '1'
+};
+
+equals.onclick = function () {
+    displayCurrentValue();
+};
+
+plus.onclick = function () {
+    displayCurrentValue();
 };
