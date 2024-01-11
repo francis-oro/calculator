@@ -34,6 +34,13 @@
     border-radius: 5px;
 }
 
+.display-value {
+    padding: 2vh 3vh;
+    text-align: right;
+    font-size: 8vh;
+    color: white;
+}
+
 .button-area {
     display: flex;
     flex-wrap: wrap;
