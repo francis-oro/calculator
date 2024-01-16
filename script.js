@@ -24,6 +24,7 @@ let currentValue = 0;
 let firstValue = 0;
 let secondValue = 0;
 let operator = "none";
+// let operator = "=";
 
 function displayCurrentValue() {
     displayedValue.textContent = currentValue;
@@ -74,7 +75,7 @@ one.onclick = function () {
 
 /*
 one.onclick = function () {
-    if (operator == "none") {
+    if (operator == "=") {
         firstValue += "1";
         currentValue += "1";
         displayedValue.textContent = firstValue;
