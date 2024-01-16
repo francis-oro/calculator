@@ -21,8 +21,8 @@ const equals = document.querySelector('.equals');
 const decimal = document.querySelector('.decimal');
 
 let currentValue = 0;
-let firstValue;
-let secondValue;
+let firstValue = 0;
+let secondValue = 0;
 let operator = "none";
 
 function displayCurrentValue() {
@@ -31,29 +31,24 @@ function displayCurrentValue() {
 
 function operate () {
     if (operator == "=") {
-        displayCurrentValue;
     }
     else if (operator == "+") {
         currentValue = firstValue + secondValue;
-        displayCurrentValue();
-        firstValue = currentValue;
     }
     else if (operator == "-") {
         currentValue = firstValue - secondValue;
-        displayCurrentValue();
-        firstValue = currentValue;
     }
     else if (operator == "x") {
         currentValue = firstValue * secondValue;
-        displayCurrentValue();
-        firstValue = currentValue;
     }
     else if (operator == "/") {
         currentValue = firstValue / secondValue;
-        displayCurrentValue();
-        firstValue = currentValue;
     }
+    displayCurrentValue();
+    firstValue = currentValue;
 }
+
+// Number functions
 
 zero.onclick = function () {
     displayedValue.textContent = '0';
@@ -165,16 +160,16 @@ nine.onclick = function () {
     }
 };
 
+// Operator functions
 
 equals.onclick = function () {
     if (operator == "=") {
         displayCurrentValue;
-        operator = "=";
     }
     else {
         operate();
-        operator = "=";
     }
+    operator = "=";
 };
 
 plus.onclick = function () {
