@@ -24,7 +24,6 @@ let currentValue = 0;
 let firstValue = 0;
 let secondValue = 0;
 let operator = "none";
-// let operator = "=";
 
 function displayCurrentValue() {
     displayedValue.textContent = currentValue;
@@ -73,19 +72,6 @@ one.onclick = function () {
     }
 };
 
-/*
-one.onclick = function () {
-    if (operator == "=") {
-        firstValue += "1";
-        currentValue += "1";
-        displayedValue.textContent = firstValue;
-    }
-    else {
-        displayedValue.textContent = '1';
-        secondValue = 1;
-    }
-};
-*/
 two.onclick = function () {
     displayedValue.textContent = '2';
     if (operator == "none") {
@@ -209,3 +195,54 @@ divide.onclick = function () {
     displayCurrentValue();
     operator = "/";
 };
+
+/* Testing
+
+let savedValue = "";
+let shownValue = "";
+let operand = "none";
+let operandActive = "no";
+
+function displayShownValue() {
+    displayedValue.textContent = shownValue;
+};
+
+function operate() {
+    if (operand == none) {
+        savedValue = shownValue;
+    }
+    else {
+        //convert shownValue and savedValue to #
+        if (operand == "+") {
+            shownValue += savedValue;
+        };
+        //convert shownValue and savedValeue to string
+    displayShownValue();
+    };
+};
+
+one.onclick = function () {
+    if (operandActive == "no") {
+        shownValue += "1";
+    }
+    else {
+        shownValue = "1";
+    };
+    operandActive = "no";
+    displayShownValue ();
+};
+
+plus.onclick = function () {
+    operate();
+    displayShownValue();
+    operator = "+";
+    operandActive = "yes";
+};
+
+equals.onclick = function () {
+    operate();
+    operand = "none";
+    operandActive = "no";
+};
+
+*/
