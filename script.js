@@ -72,6 +72,19 @@ one.onclick = function () {
     }
 };
 
+/*
+one.onclick = function () {
+    if (operator == "none") {
+        firstValue += "1";
+        currentValue += "1";
+        displayedValue.textContent = firstValue;
+    }
+    else {
+        displayedValue.textContent = '1';
+        secondValue = 1;
+    }
+};
+*/
 two.onclick = function () {
     displayedValue.textContent = '2';
     if (operator == "none") {
