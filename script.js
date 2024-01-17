@@ -10,15 +10,15 @@ const six = document.querySelector('.six');
 const seven = document.querySelector('.seven');
 const eight = document.querySelector('.eight');
 const nine = document.querySelector('.nine');
-const AC = document.querySelector('.AC');
-const negative = document.querySelector('.negative');
-const percentage = document.querySelector('.percentage');
-const divide = document.querySelector('.divide');
-const multiply = document.querySelector('.multiply');
-const minus = document.querySelector('.minus');
-const plus = document.querySelector('.plus');
-const equals = document.querySelector('.equals');
 const decimal = document.querySelector('.decimal');
+const equals = document.querySelector('.equals');
+const plus = document.querySelector('.plus');
+const minus = document.querySelector('.minus');
+const multiply = document.querySelector('.multiply');
+const divide = document.querySelector('.divide');
+const percentage = document.querySelector('.percentage');
+const negative = document.querySelector('.negative');
+const AC = document.querySelector('.AC');
 
 /*
 
@@ -245,14 +245,20 @@ one.onclick = function () {
 };
 
 // Operand functionality
+equals.onclick = function () {
+    operate();
+    operand = "none";
+    operandActive = "no";
+};
+
 plus.onclick = function () {
     operate();
     operand = "+";
     operandActive = "yes";
 };
 
-equals.onclick = function () {
+minus.onclick = function () {
     operate();
-    operand = "none";
-    operandActive = "no";
+    operand = "-";
+    operandActive = "yes";
 };
