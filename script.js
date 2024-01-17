@@ -26,7 +26,8 @@ let operand = "none";
 let operandActive = "no"; // "yes" only if operand was last button pressed
 
 function displayShownValue() {
-    shownValue = parseInt(shownValue); // convert to integer to remove leading zeros
+    shownValue = Number(shownValue); // convert to integer to remove leading zeros
+    shownValue = Math.round(shownValue * 100000000) / 100000000
     shownValue = shownValue.toString(); // convert back to string
     displayedValue.textContent = shownValue;
 };
@@ -35,7 +36,10 @@ displayShownValue ();
 
 // Primary operating function
 function operate() {
-    if (operand == "none") {
+    if (operand == "/" && shownValue == "0") {
+        alert("You cannot divide by zero")
+    }
+    else if (operand == "none") {
         savedValue = shownValue;
     }
     else {
@@ -55,9 +59,9 @@ function operate() {
         }
         else {};
     };
-        savedValue = shownValue;
-        shownValue = shownValue.toString();
-        savedValue = savedValue.toString();
+    savedValue = shownValue;
+    shownValue = shownValue.toString();
+    savedValue = savedValue.toString();
     displayShownValue();
 };
 
@@ -199,7 +203,20 @@ nine.onclick = function () {
     displayShownValue ();
 };
 
-
+decimal.onclick = function () {
+    if (operand == "=") {
+        shownValue = ".";
+        operand = "none";
+    }
+    else if (operandActive == "no") {
+        shownValue += ".";
+    }
+    else {
+        shownValue = ".";
+    };
+    operandActive = "no";
+    displayedValue.textContent = shownValue;
+};
 
 // Operand functionality
 equals.onclick = function () {
