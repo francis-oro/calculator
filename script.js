@@ -20,189 +20,8 @@ const percentage = document.querySelector('.percentage');
 const negative = document.querySelector('.negative');
 const AC = document.querySelector('.AC');
 
-/*
-
-let currentValue = 0;
-let firstValue = 0;
-let secondValue = 0;
-let operator = "none";
-
-function displayCurrentValue() {
-    displayedValue.textContent = currentValue;
-};
-
-function operate () {
-    if (operator == "=") {
-    }
-    else if (operator == "+") {
-        currentValue = firstValue + secondValue;
-    }
-    else if (operator == "-") {
-        currentValue = firstValue - secondValue;
-    }
-    else if (operator == "x") {
-        currentValue = firstValue * secondValue;
-    }
-    else if (operator == "/") {
-        currentValue = firstValue / secondValue;
-    }
-    displayCurrentValue();
-    firstValue = currentValue;
-}
-
-// Number functions
-
-zero.onclick = function () {
-    displayedValue.textContent = '0';
-    if (operator == "none") {
-        firstValue = 0;
-        currentValue = 0;
-    }
-    else {
-        secondValue = 0;
-    }
-};
-
-one.onclick = function () {
-    displayedValue.textContent = '1';
-    if (operator == "none") {
-        firstValue = 1;
-        currentValue = 1;
-    }
-    else {
-        secondValue = 1;
-    }
-};
-
-two.onclick = function () {
-    displayedValue.textContent = '2';
-    if (operator == "none") {
-        firstValue = 2;
-        currentValue = 2;
-    }
-    else {
-        secondValue = 2;
-    }
-};
-
-three.onclick = function () {
-    displayedValue.textContent = '3';
-    if (operator == "none") {
-        firstValue = 3;
-        currentValue = 3;
-    }
-    else {
-        secondValue = 3;
-    }
-};
-
-four.onclick = function () {
-    displayedValue.textContent = '4';
-    if (operator == "none") {
-        firstValue = 4;
-        currentValue = 4;
-    }
-    else {
-        secondValue = 2;
-    }
-};
-
-five.onclick = function () {
-    displayedValue.textContent = '5';
-    if (operator == "none") {
-        firstValue = 5;
-        currentValue = 5;
-    }
-    else {
-        secondValue = 5;
-    }
-};
-
-six.onclick = function () {
-    displayedValue.textContent = '6';
-    if (operator == "none") {
-        firstValue = 6;
-        currentValue = 6;
-    }
-    else {
-        secondValue = 6;
-    }
-};
-
-seven.onclick = function () {
-    displayedValue.textContent = '7';
-    if (operator == "none") {
-        firstValue = 7;
-        currentValue = 7;
-    }
-    else {
-        secondValue = 7;
-    }
-};
-
-eight.onclick = function () {
-    displayedValue.textContent = '8';
-    if (operator == "none") {
-        firstValue = 8;
-        currentValue = 8;
-    }
-    else {
-        secondValue = 8;
-    }
-};
-
-nine.onclick = function () {
-    displayedValue.textContent = '9';
-    if (operator == "none") {
-        firstValue = 9;
-        currentValue = 9;
-    }
-    else {
-        secondValue = 9;
-    }
-};
-
-// Operator functions
-
-equals.onclick = function () {
-    if (operator == "=") {
-        displayCurrentValue;
-    }
-    else {
-        operate();
-    }
-    operator = "=";
-};
-
-plus.onclick = function () {
-    operate();
-    displayCurrentValue();
-    operator = "+";
-};
-
-minus.onclick = function () {
-    operate();
-    displayCurrentValue();
-    operator = "-";
-};
-
-multiply.onclick = function () {
-    operate();
-    displayCurrentValue();
-    operator = "x";
-};
-
-divide.onclick = function () {
-    operate();
-    displayCurrentValue();
-    operator = "/";
-};
-
-*/
-
-// Testing
 let savedValue = "";
-let shownValue = "";
+let shownValue = "0";
 let operand = "none";
 let operandActive = "no"; // "yes" only if operand was last button pressed
 
@@ -211,6 +30,8 @@ function displayShownValue() {
     shownValue = shownValue.toString(); // convert back to string
     displayedValue.textContent = shownValue;
 };
+
+displayShownValue ();
 
 // Primary operating function
 function operate() {
@@ -225,16 +46,38 @@ function operate() {
         }
         else if (operand == "-") {
             shownValue = savedValue - shownValue;
-        };
+        }
+        else if (operand == "x") {
+            shownValue *= savedValue;
+        }
+        else if (operand == "/") {
+            shownValue = savedValue / shownValue;
+        }
+        else {};
+    };
+        savedValue = shownValue;
         shownValue = shownValue.toString();
         savedValue = savedValue.toString();
     displayShownValue();
-    };
 };
 
 // Number functionality
-one.onclick = function () {
+zero.onclick = function () {
     if (operandActive == "no") {
+        shownValue += "0";
+    }
+    else {
+        shownValue = "0";
+    };
+    operandActive = "no";
+    displayShownValue ();
+};
+
+one.onclick = function () {
+    if (operand == "=") {
+        shownValue = "1";
+    }
+    else if (operandActive == "no") {
         shownValue += "1";
     }
     else {
@@ -244,21 +87,190 @@ one.onclick = function () {
     displayShownValue ();
 };
 
+two.onclick = function () {
+    if (operand == "=") {
+        shownValue = "2";
+    }
+    else if (operandActive == "no") {
+        shownValue += "2";
+    }
+    else {
+        shownValue = "2";
+    };
+    operandActive = "no";
+    displayShownValue ();
+};
+
+three.onclick = function () {
+    if (operand == "=") {
+        shownValue = "3";
+    }
+    else if (operandActive == "no") {
+        shownValue += "3";
+    }
+    else {
+        shownValue = "3";
+    };
+    operandActive = "no";
+    displayShownValue ();
+};
+
+four.onclick = function () {
+    if (operand == "=") {
+        shownValue = "4";
+    }
+    else if (operandActive == "no") {
+        shownValue += "4";
+    }
+    else {
+        shownValue = "4";
+    };
+    operandActive = "no";
+    displayShownValue ();
+};
+
+five.onclick = function () {
+    if (operand == "=") {
+        shownValue = "5";
+    }
+    else if (operandActive == "no") {
+        shownValue += "5";
+    }
+    else {
+        shownValue = "5";
+    };
+    operandActive = "no";
+    displayShownValue ();
+};
+
+six.onclick = function () {
+    if (operand == "=") {
+        shownValue = "6";
+    }
+    else if (operandActive == "no") {
+        shownValue += "6";
+    }
+    else {
+        shownValue = "6";
+    };
+    operandActive = "no";
+    displayShownValue ();
+};
+
+seven.onclick = function () {
+    if (operand == "=") {
+        shownValue = "7";
+    }
+    else if (operandActive == "no") {
+        shownValue += "7";
+    }
+    else {
+        shownValue = "7";
+    };
+    operandActive = "no";
+    displayShownValue ();
+};
+
+eight.onclick = function () {
+    if (operand == "=") {
+        shownValue = "8";
+    }
+    else if (operandActive == "no") {
+        shownValue += "8";
+    }
+    else {
+        shownValue = "8";
+    };
+    operandActive = "no";
+    displayShownValue ();
+};
+
+nine.onclick = function () {
+    if (operand == "=") {
+        shownValue = "9";
+    }
+    else if (operandActive == "no") {
+        shownValue += "9";
+    }
+    else {
+        shownValue = "9";
+    };
+    operandActive = "no";
+    displayShownValue ();
+};
+
+
+
 // Operand functionality
 equals.onclick = function () {
     operate();
-    operand = "none";
+    operand = "=";
     operandActive = "no";
 };
 
 plus.onclick = function () {
-    operate();
-    operand = "+";
-    operandActive = "yes";
+    if (operandActive == "yes") {
+    }
+    else {
+        operate();
+        operand = "+";
+        operandActive = "yes";
+    }
 };
 
 minus.onclick = function () {
-    operate();
-    operand = "-";
-    operandActive = "yes";
+    if (operandActive == "yes") {
+    }
+    else {
+        operate();
+        operand = "-";
+        operandActive = "yes";
+    }
 };
+
+multiply.onclick = function () {
+    if (operandActive == "yes") {
+    }
+    else {
+        operate();
+        operand = "x";
+        operandActive = "yes";
+    }
+};
+
+divide.onclick = function () {
+    if (operandActive == "yes") {
+    }
+    else {
+        operate();
+        operand = "/";
+        operandActive = "yes";
+    }
+};
+
+percentage.onclick = function () {
+    shownValue = Number(shownValue);
+    if (savedValue == "") {
+        shownValue *= .01;
+    }
+    else {
+        shownValue = 100 * (shownValue / savedValue)
+    };
+    shownValue = shownValue.toString();
+    displayShownValue();
+};
+
+negative.onclick = function () {
+    shownValue = Number(shownValue);
+    shownValue *= -1;
+    shownValue = shownValue.toString();
+    displayShownValue();
+}
+
+AC.onclick = function () {
+    savedValue = "";
+    shownValue = "0";
+    operand = "none";
+    operandActive = "no";
+    displayShownValue();
+}
