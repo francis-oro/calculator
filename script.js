@@ -20,6 +20,8 @@ const plus = document.querySelector('.plus');
 const equals = document.querySelector('.equals');
 const decimal = document.querySelector('.decimal');
 
+/*
+
 let currentValue = 0;
 let firstValue = 0;
 let secondValue = 0;
@@ -196,31 +198,41 @@ divide.onclick = function () {
     operator = "/";
 };
 
-/* Testing
+*/
 
+// Testing
 let savedValue = "";
 let shownValue = "";
 let operand = "none";
-let operandActive = "no";
+let operandActive = "no"; // "yes" only if operand was last button pressed
 
 function displayShownValue() {
+    shownValue = parseInt(shownValue); // convert to integer to remove leading zeros
+    shownValue = shownValue.toString(); // convert back to string
     displayedValue.textContent = shownValue;
 };
 
+// Primary operating function
 function operate() {
-    if (operand == none) {
+    if (operand == "none") {
         savedValue = shownValue;
     }
     else {
-        //convert shownValue and savedValue to #
+        shownValue = Number(shownValue);
+        savedValue = Number(savedValue);
         if (operand == "+") {
             shownValue += savedValue;
+        }
+        else if (operand == "-") {
+            shownValue = savedValue - shownValue;
         };
-        //convert shownValue and savedValeue to string
+        shownValue = shownValue.toString();
+        savedValue = savedValue.toString();
     displayShownValue();
     };
 };
 
+// Number functionality
 one.onclick = function () {
     if (operandActive == "no") {
         shownValue += "1";
@@ -232,10 +244,10 @@ one.onclick = function () {
     displayShownValue ();
 };
 
+// Operand functionality
 plus.onclick = function () {
     operate();
-    displayShownValue();
-    operator = "+";
+    operand = "+";
     operandActive = "yes";
 };
 
@@ -244,5 +256,3 @@ equals.onclick = function () {
     operand = "none";
     operandActive = "no";
 };
-
-*/
