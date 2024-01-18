@@ -204,7 +204,9 @@ nine.onclick = function () {
 };
 
 decimal.onclick = function () {
-    if (operand == "=") {
+    if (shownValue.includes('.')) {
+    }
+    else if (operand == "=") {
         shownValue = ".";
         operand = "none";
     }
@@ -267,11 +269,11 @@ divide.onclick = function () {
 
 percentage.onclick = function () {
     shownValue = Number(shownValue);
-    if (savedValue == "") {
+    if (savedValue == "" || operand == "=") {
         shownValue *= .01;
     }
     else {
-        shownValue = 100 * (shownValue / savedValue)
+        shownValue = savedValue * (shownValue / 100)
     };
     shownValue = shownValue.toString();
     displayShownValue();

@@ -67,6 +67,14 @@
     font-size: 4vh;
 }
 
+.top {
+    background-color: #24316b;
+}
+
+.operand {
+    background-color: #1c308b;
+}
+
 .button:hover {
     background-color: #487eb1;
 }
