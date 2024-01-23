@@ -204,7 +204,7 @@ nine.onclick = function () {
 };
 
 decimal.onclick = function () {
-    if (shownValue.includes('.')) {
+    if (shownValue.includes('.') && (operandActive == "no")) {
     }
     else if (operand == "=") {
         shownValue = ".";
